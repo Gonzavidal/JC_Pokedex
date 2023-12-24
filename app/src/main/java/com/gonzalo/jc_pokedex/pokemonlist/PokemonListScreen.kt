@@ -67,7 +67,7 @@ fun SearchBar(
     var text by remember {
         mutableStateOf("")
     }
-    var isHintDisplay by remember {
+    var isHintDisplayed by remember {
         mutableStateOf(hint != "")
     }
     Box(modifier = modifier) {
@@ -86,10 +86,10 @@ fun SearchBar(
                 .background(Color.White, CircleShape)
                 .padding(horizontal = 20.dp, vertical = 12.dp)
                 .onFocusChanged {
-                    isHintDisplay = it.isFocused
+                    isHintDisplayed = it.isFocused != true
                 }
         )
-        if (isHintDisplay) {
+        if (isHintDisplayed) {
             Text(
                 text = hint,
                 color = Color.LightGray,
