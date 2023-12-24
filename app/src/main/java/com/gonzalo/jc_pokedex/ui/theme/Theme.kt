@@ -68,12 +68,6 @@ fun JC_PokedexTheme(
         }
     }
 
-    /*MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )*/
-
     MaterialTheme(
         colorScheme = colorScheme,
         typography = typography,
