@@ -5,7 +5,6 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.capitalize
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.palette.graphics.Palette
@@ -37,8 +36,7 @@ class PokemonListViewModel @Inject constructor(
     fun loadPokemonPaginated() {
         viewModelScope.launch {
             isLoading.value = true
-            val result = repository.getPokemonList(PAGE_SIZE, curPage * PAGE_SIZE)
-            when (result) {
+            when (val result = repository.getPokemonList(PAGE_SIZE, curPage * PAGE_SIZE)) {
                 is Resource.Success -> {
                     endReached.value = curPage * PAGE_SIZE >= result.data!!.count
                     val pokedexEntries = result.data.results.mapIndexed { index, entry ->

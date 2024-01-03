@@ -26,7 +26,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -49,10 +48,8 @@ import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
 import coil.request.ImageRequest
-import com.gonzalo.jc_pokedex.PokemonList
 import com.gonzalo.jc_pokedex.R
 import com.gonzalo.jc_pokedex.data.models.PokedexListEntry
-import com.google.accompanist.coil.CoilImage
 
 
 @Composable
@@ -71,7 +68,7 @@ fun PokemonListScreen(
                 contentDescription = "Pokemon",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .align(Alignment.CenterHorizontally)
+                    .align(CenterHorizontally)
             )
             SearchBar(
                 hint = "Search Pokemon...",
@@ -174,13 +171,13 @@ fun PokedexEntry(
     modifier: Modifier = Modifier,
     viewModel: PokemonListViewModel = hiltViewModel()
 ) {
-    val defaultDominantColor = MaterialTheme.colorScheme.primary
+    val defaultDominantColor = Color.White
     var dominantColor by remember {
         mutableStateOf(defaultDominantColor)
     }
 
     Box(
-        contentAlignment = Alignment.Center,
+        contentAlignment = Center,
         modifier = modifier
             .shadow(5.dp, RoundedCornerShape(10.dp))
             .clip(RoundedCornerShape(10.dp))
