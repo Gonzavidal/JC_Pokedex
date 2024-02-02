@@ -1,23 +1,30 @@
 package com.gonzalo.jc_pokedex.data.remote.responses
 
+import com.google.gson.annotations.SerializedName
+
 data class Pokemon(
-    val abilities: List<com.gonzalo.jc_pokedex.data.remote.responses.Ability>,
-    val base_experience: Int,
-    val forms: List<com.gonzalo.jc_pokedex.data.remote.responses.Form>,
-    val game_indices: List<com.gonzalo.jc_pokedex.data.remote.responses.GameIndice>,
+    val abilities: List<Ability>,
+    @SerializedName("base_experience")
+    val baseExperience: Int,
+    val forms: List<Form>,
+    @SerializedName("game_indices")
+    val gameIndices: List<GameIndice>,
     val height: Int,
-    val held_items: List<Any>,
+    @SerializedName("held_items")
+    val heldItems: List<Any>,
     val id: Int,
-    val is_default: Boolean,
-    val location_area_encounters: String,
-    val moves: List<com.gonzalo.jc_pokedex.data.remote.responses.Move>,
+    @SerializedName("is_default")
+    val isDefault: Boolean,
+    @SerializedName("location_area_encounters")
+    val locationAreaEncounters: String,
+    val moves: List<Move>,
     val name: String,
     val order: Int,
-    val past_abilities: List<Any>,
-    val past_types: List<Any>,
-    val species: com.gonzalo.jc_pokedex.data.remote.responses.Species,
-    val sprites: com.gonzalo.jc_pokedex.data.remote.responses.Sprites,
-    val stats: List<com.gonzalo.jc_pokedex.data.remote.responses.Stat>,
-    val types: List<com.gonzalo.jc_pokedex.data.remote.responses.Type>,
+    @SerializedName("past_types")
+    val pastTypes: List<Any>,
+    val species: Species,
+    val sprites: Sprites,
+    val stats: List<Stat>,
+    val types: List<Type>,
     val weight: Int
 )
